@@ -67,7 +67,7 @@ export default function Hero() {
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[min(78vh,680px)] shadow-[var(--shadow-elevated)] border border-[var(--color-stone-line)]">
             <video
-              src="/assets/hero.mp4"
+              src={`${import.meta.env.BASE_URL}assets/hero.mp4`}
               autoPlay
               muted
               loop

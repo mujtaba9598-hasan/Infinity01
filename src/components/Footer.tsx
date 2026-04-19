@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="max-container section-gutter pt-20 pb-10 md:pt-28 md:pb-14 relative">
         <div className="flex flex-col items-center text-center mb-16">
           <img
-            src="/assets/logo.png"
+            src={`${import.meta.env.BASE_URL}assets/logo.png`}
             alt="Infinity Turnkey Interiors"
             className="h-16 md:h-20 w-auto mb-8 brightness-0 invert"
           />

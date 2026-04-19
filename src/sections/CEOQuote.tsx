@@ -38,7 +38,7 @@ export default function CEOQuote() {
         <div className="lg:col-span-5">
           <div className="ceo-portrait relative rounded-[2rem] overflow-hidden aspect-[4/5] max-w-md mx-auto lg:mx-0 border border-[var(--color-stone-line)] shadow-[var(--shadow-elevated)]">
             <img
-              src="/assets/owner.png"
+              src={`${import.meta.env.BASE_URL}assets/owner.png`}
               alt="Ovais Hashmi, CEO of Infinity Turnkey Interiors"
               className="w-full h-full object-cover"
             />

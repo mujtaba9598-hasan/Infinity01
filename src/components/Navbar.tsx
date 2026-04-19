@@ -36,7 +36,7 @@ export default function Navbar() {
           ].join(' ')}
         >
           <a href="#home" className="flex items-center gap-2.5 shrink-0" aria-label="Infinity Turnkey Interiors, Home">
-            <img src="/assets/logo.png" alt="Infinity" className="h-11 md:h-12 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}assets/logo.png`} alt="Infinity" className="h-11 md:h-12 w-auto" />
           </a>
 
           <ul className="hidden lg:flex items-center gap-7 text-[0.82rem] tracking-wide">
