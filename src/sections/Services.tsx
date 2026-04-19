@@ -250,13 +250,15 @@ export default function Services() {
             return (
               <article
                 key={s.num}
-                className={`svc-card group relative rounded-3xl p-7 md:p-8 border border-[var(--color-stone-line)] transition-all duration-300 ${toneClass(s.tone)} hover:shadow-[var(--shadow-card)] hover:-translate-y-1 cursor-pointer overflow-hidden`}
+                className={`svc-card group flex flex-col rounded-3xl border border-[var(--color-stone-line)] transition-all duration-300 ${toneClass(s.tone)} hover:shadow-[var(--shadow-card)] hover:-translate-y-1 cursor-pointer overflow-hidden`}
               >
-                <div className="absolute inset-x-0 top-0 aspect-[5/2.3] opacity-80 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-[1.03]">
-                  <Art />
+                <div className="w-full h-[180px] md:h-[200px] border-b border-[var(--color-stone-line)]/60 overflow-hidden">
+                  <div className="w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.04]">
+                    <Art />
+                  </div>
                 </div>
 
-                <div className="relative pt-[44%] md:pt-[46%]">
+                <div className="flex-1 flex flex-col p-7 md:p-8">
                   <div className="flex items-start justify-between mb-6">
                     <span className="eyebrow">{s.num}</span>
                     <span className="h-9 w-9 rounded-full bg-[var(--color-bone)] border border-[var(--color-stone-line)] flex items-center justify-center transition-all duration-300 group-hover:bg-[var(--color-ink)] group-hover:text-[var(--color-bone)] group-hover:rotate-[-12deg]">

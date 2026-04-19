@@ -26,7 +26,12 @@ export function useLenis() {
     gsap.ticker.add(tickerFn)
     gsap.ticker.lagSmoothing(0)
 
+    const refreshId = requestAnimationFrame(() => {
+      ScrollTrigger.refresh()
+    })
+
     return () => {
+      cancelAnimationFrame(refreshId)
       gsap.ticker.remove(tickerFn)
       lenis.destroy()
     }
