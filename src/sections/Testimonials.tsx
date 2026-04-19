@@ -1,13 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/effect-fade'
 
 const TESTIMONIALS = [
   {
     quote:
-      'They fit out our flagship in under ten weeks and every surface still looks the day it opened. That kind of finish doesn\'t happen by luck.',
+      'They fit out our flagship in under ten weeks and every surface still looks the day it opened. That kind of finish does not happen by luck.',
     author: 'Milanda Moses',
     role: 'Retail Development Lead · UAE',
   },
@@ -19,7 +18,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      'Infinity is the only contractor I\'ve worked with whose MEP disappears the way it should. Behind the architecture, not fighting it.',
+      'Infinity is the only contractor I have worked with whose MEP disappears the way it should. Behind the architecture, not fighting it.',
     author: 'Emily Watson',
     role: 'Principal · Interior Design Studio',
   },
@@ -27,7 +26,7 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="relative bg-[var(--color-bone)] py-28 md:py-36">
+    <section className="relative bg-[var(--color-bone)] py-28 md:py-36 overflow-hidden">
       <div className="max-container section-gutter">
         <div className="text-center mb-14">
           <p className="eyebrow mb-3">Voices</p>
@@ -36,13 +35,15 @@ export default function Testimonials() {
           </h2>
         </div>
         <Swiper
-          modules={[Autoplay, EffectFade, Pagination]}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          autoplay={{ delay: 6500, disableOnInteraction: false }}
+          modules={[Autoplay, Pagination]}
+          slidesPerView={1}
+          spaceBetween={40}
+          autoplay={{ delay: 5500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          speed={900}
           pagination={{ clickable: true, bulletClass: 'swiper-bullet', bulletActiveClass: 'swiper-bullet-active' }}
           loop
-          className="max-w-4xl mx-auto"
+          grabCursor
+          className="max-w-4xl mx-auto !overflow-visible"
         >
           {TESTIMONIALS.map((t, i) => (
             <SwiperSlide key={i}>
@@ -72,6 +73,8 @@ export default function Testimonials() {
             margin: 0 4px;
             transition: background 200ms ease, width 200ms ease;
             cursor: pointer;
+            border: 0;
+            padding: 0;
           }
           .swiper-bullet-active {
             background: var(--color-cobalt);
@@ -79,7 +82,7 @@ export default function Testimonials() {
           }
           .swiper-pagination {
             position: relative;
-            margin-top: 28px;
+            margin-top: 40px;
             text-align: center;
           }
         `}</style>

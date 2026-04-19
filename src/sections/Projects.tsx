@@ -97,12 +97,12 @@ export default function Projects() {
     if (reduced) return
     const ctx = gsap.context(() => {
       gsap.from('.proj-card', {
-        scrollTrigger: { trigger: ref.current, start: 'top 75%' },
-        opacity: 0,
-        y: 60,
+        scrollTrigger: { trigger: ref.current, start: 'top 90%', once: true },
+        y: 50,
         stagger: 0.07,
-        duration: 0.9,
+        duration: 0.8,
         ease: 'power3.out',
+        immediateRender: false,
       })
     }, ref)
     return () => ctx.revert()

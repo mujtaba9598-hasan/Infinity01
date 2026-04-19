@@ -211,12 +211,12 @@ export default function Services() {
     if (reduced) return
     const ctx = gsap.context(() => {
       gsap.from('.svc-card', {
-        scrollTrigger: { trigger: rootRef.current, start: 'top 75%' },
-        opacity: 0,
-        y: 50,
+        scrollTrigger: { trigger: rootRef.current, start: 'top 90%', once: true },
+        y: 40,
         stagger: 0.08,
-        duration: 0.9,
+        duration: 0.8,
         ease: 'power3.out',
+        immediateRender: false,
       })
     }, rootRef)
     return () => ctx.revert()
