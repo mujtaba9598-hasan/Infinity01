@@ -1,9 +1,5 @@
-import { useEffect, useRef, type FC } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { type FC } from 'react'
 import { ArrowUpRight } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 type Tone = 'cobalt' | 'champagne' | 'coral'
 
@@ -204,24 +200,6 @@ const SERVICES: Service[] = [
 ]
 
 export default function Services() {
-  const rootRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
-    const ctx = gsap.context(() => {
-      gsap.from('.svc-card', {
-        scrollTrigger: { trigger: rootRef.current, start: 'top 90%', once: true },
-        y: 40,
-        stagger: 0.08,
-        duration: 0.8,
-        ease: 'power3.out',
-        immediateRender: false,
-      })
-    }, rootRef)
-    return () => ctx.revert()
-  }, [])
-
   const toneClass = (tone: Tone) => {
     if (tone === 'coral') return 'bg-[var(--color-coral-soft)]'
     if (tone === 'champagne') return 'bg-[var(--color-champagne-soft)]'
@@ -229,7 +207,7 @@ export default function Services() {
   }
 
   return (
-    <section ref={rootRef} className="relative bg-[var(--color-bone-100)] py-28 md:py-36 border-y hairline">
+    <section className="relative bg-[var(--color-bone-100)] py-28 md:py-36 border-y hairline">
       <div className="max-container section-gutter">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12 md:mb-16">
           <div>

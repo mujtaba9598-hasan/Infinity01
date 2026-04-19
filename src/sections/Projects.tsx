@@ -1,9 +1,4 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowUpRight } from 'lucide-react'
-
-gsap.registerPlugin(ScrollTrigger)
 
 type Project = {
   sector: string
@@ -90,26 +85,8 @@ const PROJECTS: Project[] = [
 ]
 
 export default function Projects() {
-  const ref = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) return
-    const ctx = gsap.context(() => {
-      gsap.from('.proj-card', {
-        scrollTrigger: { trigger: ref.current, start: 'top 90%', once: true },
-        y: 50,
-        stagger: 0.07,
-        duration: 0.8,
-        ease: 'power3.out',
-        immediateRender: false,
-      })
-    }, ref)
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section ref={ref} className="relative bg-[var(--color-bone)] py-28 md:py-36">
+    <section className="relative bg-[var(--color-bone)] py-28 md:py-36">
       <div className="max-container section-gutter">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12 md:mb-16">
           <div>
